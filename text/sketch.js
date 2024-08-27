@@ -31,7 +31,7 @@ let shootFreq = 0;
 
 
 function preload() {
-  img = loadImage('https://img.88tph.com/production/20180914/13103514-0.jpg!/watermark/url/L3BhdGgvbG9nby5wbmc/align/center/fw/640/quality/70');
+  bgImg = loadImage('background.png');
 }
 
 function setup() {
