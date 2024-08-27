@@ -5,9 +5,9 @@ let bulletImg = null;
 
 function preload() {
   bgImg = loadImg('background.png');
-  playerImg = loadImg('player.png');
+/* playerImg = loadImg('player.png');
   enemyImg = loadImg('enemy.png');
-  bulletImg = loadImg('bullet.png');
+  bulletImg = loadImg('bullet.png');*/
 }
 
 
@@ -27,12 +27,6 @@ let bulletSpeed = 7;
 let bulletTimer = 1;
 let shootFreq = 0;
 
-
-
-
-function preload() {
-  bgImg = loadImage('background.png');
-}
 
 function setup() {
   createCanvas(600, 600);
