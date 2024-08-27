@@ -4,7 +4,7 @@ let enemyImg = null;
 let bulletImg = null;
 
 function preload() {
-  bgImg = loadImg('background.png');
+  bgImg = loadImage('background.png');
 
 }
 
