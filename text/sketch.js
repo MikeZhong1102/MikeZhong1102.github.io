@@ -4,7 +4,7 @@ let enemyImg = null;
 let bulletImg = null;
 
 function preload() {
-  bgImg = loadImage('background.png');
+  bgImg = loadImage('https://github.com/MikeZhong1102/MikeZhong1102.github.io/blob/main/text/background.png?raw=true');
 
 }
 
