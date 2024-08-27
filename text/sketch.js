@@ -5,9 +5,7 @@ let bulletImg = null;
 
 function preload() {
   bgImg = loadImg('background.png');
-/* playerImg = loadImg('player.png');
-  enemyImg = loadImg('enemy.png');
-  bulletImg = loadImg('bullet.png');*/
+
 }
 
 
@@ -36,29 +34,5 @@ function draw() {
   background('yellow');
   image(bgImg, 0, 0, width, height);
   
-  push(); 
-  imgMode(CENTER);
-  img(playerImg, width/2, height - playerImg.height/2);
-  pop();
-  
-  
-  playerPos = mouseX;
-  if (mouseX < 50) {
-    mx = 50;
-  } else if (mouseX > 550) {
-    mx = 550;
-  }
-  
-  shootFreq += deltaTime/1000;
-  if (shootFreq > 1) {
-    let bullet = {x: playerPos.x, y: playPos.y};
-    bullets.push(bullet);
-    shootFreq = 0;
-  }
-  /*for (let n = 0; n < bullets.length, n++) {
-    let bullet = bullets[n];
-    img(bulletImg, bullet.x, bullet.y);
-  }*/
-  
-  pop();
+ 
 }
