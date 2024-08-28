@@ -17,8 +17,8 @@ let timer = 1000;
 
 function preload() {
   coverImage = loadImage('https://www.signschool.com/static/img/startImg5.png');
-  //bgImg = loadImage('https://img.88tph.com/production/20180914/13103514-0.jpg!/watermark/url/L3BhdGgvbG9nby5wbmc/align/center/fw/640/quality/70');
-  bgImg = loadImage('bullet.png');
+  bgImg = loadImage('https://img.88tph.com/production/20180914/13103514-0.jpg!/watermark/url/L3BhdGgvbG9nby5wbmc/align/center/fw/640/quality/70');
+  //bgImg = loadImage('bullet.png');
   font = loadFont('Australian Signature.otf');
   mySound = loadSound('beat.wav');
   
