@@ -74,12 +74,12 @@ function draw() {
     image(supportImg, supportLeftPos.x - supportImg.width / 2, supportLeftPos.y - supportImg.height / 2);
     image(supportImg, supportRightPos.x - supportImg.width / 2, supportRightPos.y - supportImg.height / 2);
 
+    playerPos.x = mouseX;
     if (mouseX < playerImg.width / 2) {
       playerPos.x = playerImg.width / 2;
     } else if (mouseX > width - playerImg.width / 2) {
       playerPos.x = width-playerImg.width / 2;
     }
-    playerPos.x = mouseX;
     supportLeftPos.x = playerPos.x - playerImg.width / 2 - supportImg.width;
     supportRightPos.x = playerPos.x + playerImg.width / 2 + supportImg.width;
 
