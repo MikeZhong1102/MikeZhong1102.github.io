@@ -14,7 +14,7 @@ let enemyPos = {x: 0, y: 0};
 let bullets = [];
 let supportLeftBullets = [];
 let supportRightBullets = [];
-let supportBulletSpeed = 1;
+let supportBulletSpeed = 3;
 let supportShootFreq = 0;
 let supportBulletFlyFreq = 0;
 let bulletSpeed = 3;
@@ -140,6 +140,7 @@ function draw() {
     if (enemyPos.y > height + enemyImg.height / 2) {
       enemyPos.y = -enemyImg.height;
       enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
+      score = 0;
       enemySpeed = 5;
       timer = 1000;
       supportTimer = 1000;
@@ -161,7 +162,7 @@ function draw() {
         if (timer > 300) {
           timer /= 2;
         }
-        if (supportTimer > 500) {
+        if (supportTimer > 300) {
           supportTimer /= 2;
         }
       }
@@ -183,7 +184,7 @@ function draw() {
         if (timer > 300) {
           timer /= 2;
         }
-        if (supportTimer > 500) {
+        if (supportTimer > 300) {
           supportTimer /= 2;
         }
       }
@@ -205,7 +206,7 @@ function draw() {
         if (timer > 300) {
           timer /= 2;
         }
-        if (supportTimer > 500) {
+        if (supportTimer > 300) {
           supportTimer /= 2;
         }
       }
