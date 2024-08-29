@@ -139,7 +139,7 @@ function draw() {
 
     if (enemyPos.y > height + enemyImg.height / 2) {
       enemyPos.y = -enemyImg.height;
-      enemyPos.x = random(600);
+      enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
       score = 0;
       enemySpeed = 5;
       timer = 1000;
