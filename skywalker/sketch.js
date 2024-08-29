@@ -91,7 +91,7 @@ function draw() {
     }
 
     supportShootFreq += deltaTime/supportTimer;
-    if (supportShootFreq > 2) {
+    if (supportShootFreq > 1) {
       let supportLeftBullet = {x: supportLeftPos.x, y: supportLeftPos.y - supportImg.height / 2};
       let supportRightBullet = {x: supportRightPos.x, y: supportRightPos.y - supportImg.height / 2};
       supportLeftBullets.push(supportLeftBullet);
@@ -139,8 +139,7 @@ function draw() {
 
     if (enemyPos.y > height + enemyImg.height / 2) {
       enemyPos.y = -enemyImg.height;
-      enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
-      score = 0;
+      enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
       enemySpeed = 5;
       timer = 1000;
       supportTimer = 1000;
@@ -153,7 +152,7 @@ function draw() {
         bullet.y + bulletImg.height / 2 > enemyPos.y - enemyImg.height / 2 &&
         bullet.y - bulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
         enemyPos.y = -enemyImg.height;
-        enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
+        enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
         explosionSound.play();
         score++;
         if (enemySpeed < 20) {
@@ -175,7 +174,7 @@ function draw() {
         supportLeftBullet.y + supportBulletImg.height / 2 > enemyPos.y - enemyImg.height / 2 &&
         supportLeftBullet.y - supportBulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
         enemyPos.y = -enemyImg.height;
-        enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
+        enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
         explosionSound.play();
         score++;
         if (enemySpeed < 20) {
@@ -197,7 +196,7 @@ function draw() {
         supportRightBullet.y + supportBulletImg.height / 2 > enemyPos.y - enemyImg.height / 2 &&
         supportRightBullet.y - supportBulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
         enemyPos.y = -enemyImg.height;
-        enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
+        enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
         explosionSound.play();
         score++;
         if (enemySpeed < 20) {
