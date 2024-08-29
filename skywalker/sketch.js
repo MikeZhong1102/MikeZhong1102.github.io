@@ -4,7 +4,7 @@ let bgm;
 let bgImg = null;
 let score = 0;
 let font;
-let mySound;
+let explosionSound;
 let playerSpeed = 5;
 let enemySpeed = 5;
 let playerPos = {x: 0, y: 0};
@@ -37,7 +37,7 @@ function preload() {
   playerImg = loadImage('player.png');
   enemyImg = loadImage('enemy.png');
   font = loadFont('Australian Signature.otf');
-  mySound = loadSound('beat.wav');
+  explosionSound = loadSound('explosion.wav');
   supportImg = loadImage('support.png');
   supportBulletImg = loadImage('supportBullet.png');
 }
@@ -154,7 +154,7 @@ function draw() {
         bullet.y - bulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
         enemyPos.y = -enemyImg.height;
         enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
-        mySound.play();
+        explosionSound.play();
         score++;
         if (enemySpeed < 20) {
           enemySpeed++;
@@ -175,7 +175,7 @@ function draw() {
         supportLeftBullet.y - supportBulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
         enemyPos.y = -enemyImg.height;
         enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
-        mySound.play();
+        explosionSound.play();
         score++;
         if (enemySpeed < 20) {
           enemySpeed++;
@@ -196,7 +196,7 @@ function draw() {
         supportRightBullet.y - supportBulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
         enemyPos.y = -enemyImg.height;
         enemyPos.x = map(random(windowWidth), 0, windowWidth, playerImg.width / 2 - bulletImg.width / 2, windowWidth - playerImg.width / 2 + bulletImg.width / 2);
-        mySound.play();
+        explosionSound.play();
         score++;
         if (enemySpeed < 20) {
           enemySpeed++;
