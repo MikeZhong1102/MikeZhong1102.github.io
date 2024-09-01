@@ -1,7 +1,6 @@
 html, body {
   margin: 0;
   padding: 0;
-	background-color: #007bff;
 }
 canvas {
   display: block;
@@ -13,4 +12,7 @@ a {
 }
 a:hover {
     color: #ff0000;
+}
+body {
+	background-color: #007bff;
 }
