@@ -1,0 +1,55 @@
+body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				margin: 0;
+				font-family: Arial, sans-serif;
+				background-color: #007bff;
+			}
+      h1 {
+				font-size: 3em;
+				color: #ff0000;
+				margin: 20px 0;
+			}
+      p {
+				font-size: 1.2em;
+				line-height: 2;
+				text-align: justify;
+				margin: 10px 0;
+			}
+      ol {
+        padding-left: 20px; 
+        margin: 20px 0;
+        list-style-type: decimal;
+      }
+      ol li {
+        margin-bottom: 10px;
+      }
+      a {
+				color: #28a745;
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+			a:hover {
+				color: #ff0000;
+			}
+			.container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				padding: 10%;
+			}
+			.box1 {
+				background: url(https://github.com/MikeZhong1102/MikeZhong1102.github.io/blob/main/skywalker/player.png?raw=true) center no-repeat;
+				transition: 1s;
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				background-size: 100%;
+			}
+			.box1:hover {
+				transition: 1s;
+				transform: rotate(360deg);
+			}
