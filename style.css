@@ -2,7 +2,7 @@ body{
     background-color: #000000;
 }
 
-.container{ 
+.containerBig{ 
     position: fixed;
     top: 0;
     left: 10;
