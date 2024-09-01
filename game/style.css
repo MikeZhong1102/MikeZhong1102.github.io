@@ -27,12 +27,12 @@ body {
         margin-bottom: 10px;
       }
       a {
-				color: #28a745;
+				color: #ff0000;
 				text-decoration: none;
 				transition: color 0.3s ease;
 			}
 			a:hover {
-				color: #ff0000;
+				color: #007bff;
 			}
 			.container {
 				display: flex;
