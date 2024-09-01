@@ -19,3 +19,11 @@ p {
 h1 {
     color: #ff0000;
 }
+.containerBig { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* 确保在最底层 */
+}
