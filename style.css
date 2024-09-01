@@ -5,3 +5,11 @@ html, body {
 canvas {
   display: block;
 }
+a {
+    color: #28a745;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #218838;
+}
