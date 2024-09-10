@@ -28,6 +28,7 @@ let playerImg;
 let enemyImg;
 let supportImg;
 let supportBulletImg;
+let isMusicPlaying = false;
 
 function preload() {
   coverImage = loadImage('cover.png');
@@ -210,7 +211,10 @@ function draw() {
 
 function mousePressed() {
   showCover = false;
-  bgm.loop();
+  if (!isMusicPlaying) {
+    bgm.loop();
+    isMusicPlaying = true;
+  }
 }
 
 function displayWinPopup() {
