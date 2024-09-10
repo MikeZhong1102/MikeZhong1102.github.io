@@ -43,7 +43,6 @@ function preload() {
 }
 
 function setup() {
-  bgm.loop();
   createCanvas(windowWidth, windowHeight);
   playerPos.x = width / 2;
   playerPos.y = height - playerImg.height / 2;
@@ -59,6 +58,7 @@ function draw() {
   if (showCover) {
     image(coverImage, 0, 0, width, height); 
   } else {
+    bgm.loop();
     background('yellow');
     image(bgImg, 0, 0, width, height);
 
