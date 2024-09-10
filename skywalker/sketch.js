@@ -217,7 +217,7 @@ function displayWinPopup() {
   let scoreDiv = createDiv(`You won! Your score: ${score}`);
   scoreDiv.position(width / 2 - 100, height / 2 - 50);
   scoreDiv.style('font-size', '20px');
-  scoreDiv.style('color', 'black');
+  scoreDiv.style('color', 'red');
 
   playAgainButton = createButton('Play Again');
   playAgainButton.position(width / 2 - 40, height / 2 + 20);
