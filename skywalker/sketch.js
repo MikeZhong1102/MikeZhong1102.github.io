@@ -231,7 +231,7 @@ function displayWinPopup() {
 }
 
 function restartGame() {
-  clear()
+  clear();
   let elements = selectAll('div');
   elements.forEach(e => e.remove());
   playAgainButton.remove();
