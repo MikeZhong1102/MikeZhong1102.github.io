@@ -222,6 +222,7 @@ function displayWinPopup() {
   playAgainButton = createButton('Play Again');
   playAgainButton.position(width / 2 - 40, height / 2 + 20);
   playAgainButton.mousePressed(restartGame);
+  bgm.stop();
   noLoop();
 }
 
@@ -235,6 +236,6 @@ function restartGame() {
   enemySpeed = 5;
   timer = 1000;
   supportTimer = 1000;
-  
+  bgm.loop();
   loop();
 }
