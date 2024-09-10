@@ -68,6 +68,30 @@
         button {
             animation-delay: 33s;
         }
+	button {
+    width: 300px;
+    height: 50px;
+    background-color: #000;
+    border: .5px solid crimson;
+    border-radius: 10px;
+    color: gold; /* Set the default text color to gold */
+    box-shadow: 0 0 30px 0 crimson,
+                0 0 30px 0 crimson,
+                0 0 10px 0 crimson inset;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+button:hover {
+    color: crimson; /* Change text color to crimson on hover */
+}
+
 
         @keyframes fadeIn {
             0% {
