@@ -66,9 +66,6 @@
             animation-delay: 30s;
         }
         button {
-            animation-delay: 33s;
-        }
-	button {
     width: 300px;
     height: 50px;
     background-color: #000;
@@ -84,6 +81,7 @@
     font-size: 1.2em;
     opacity: 0;
     animation: fadeIn 3s forwards;
+    animation-delay: 12s; /* Delay the button appearance until after the paragraphs */
     cursor: pointer;
     transition: color 0.3s ease; /* Smooth color transition */
 }
@@ -91,6 +89,7 @@
 button:hover {
     color: crimson; /* Change text color to crimson on hover */
 }
+
 
 
         @keyframes fadeIn {
