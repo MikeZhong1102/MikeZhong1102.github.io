@@ -214,7 +214,7 @@ function mousePressed() {
 }
 
 function displayWinPopup() {
-  let scoreDiv = createDiv(`You won! Your score: ${score}`);
+  let scoreDiv = createDiv(`Your score: ${score}`);
   scoreDiv.position(width / 2 - 100, height / 2 - 50);
   scoreDiv.style('font-size', '20px');
   scoreDiv.style('color', 'red');
