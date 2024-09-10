@@ -138,12 +138,7 @@ function draw() {
     image(enemyImg, enemyPos.x - enemyImg.width / 2, enemyPos.y - enemyImg.height / 2);
 
     if (enemyPos.y > height + enemyImg.height / 2) {
-      enemyPos.y = -enemyImg.height;
-      enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
-      score = 0;
-      enemySpeed = 5;
-      timer = 1000;
-      supportTimer = 1000;
+      displayWinPopup();
     }
 
     for (let n = 0; n < bullets.length; n++) {
@@ -216,4 +211,30 @@ function draw() {
 
 function mousePressed() {
   showCover = false;
+}
+
+function displayWinPopup() {
+  let scoreDiv = createDiv(`You won! Your score: ${score}`);
+  scoreDiv.position(width / 2 - 100, height / 2 - 50);
+  scoreDiv.style('font-size', '20px');
+  scoreDiv.style('color', 'black');
+
+  playAgainButton = createButton('Play Again');
+  playAgainButton.position(width / 2 - 40, height / 2 + 20);
+  playAgainButton.mousePressed(restartGame);
+  noLoop();
+}
+
+function restartGame() {
+  let elements = selectAll('div');
+  elements.forEach(e => e.remove());
+  playAgainButton.remove();
+  enemyPos.y = -enemyImg.height;
+  enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
+  score = 0;
+  enemySpeed = 5;
+  timer = 1000;
+  supportTimer = 1000;
+  
+  loop();
 }
