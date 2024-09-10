@@ -58,7 +58,6 @@ function draw() {
   if (showCover) {
     image(coverImage, 0, 0, width, height); 
   } else {
-    bgm.loop();
     background('yellow');
     image(bgImg, 0, 0, width, height);
 
@@ -211,6 +210,7 @@ function draw() {
 
 function mousePressed() {
   showCover = false;
+  bgm.loop();
 }
 
 function displayWinPopup() {
