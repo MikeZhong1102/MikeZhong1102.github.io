@@ -5,7 +5,7 @@ body {
 				height: 100vh;
 				margin: 0;
 				font-family: Arial, sans-serif;
-			}
+}
       ol {
         padding-left: 20px; 
         margin: 20px 0;
@@ -14,14 +14,6 @@ body {
       ol li {
         margin-bottom: 10px;
       }
-      a {
-				color: #28a745;
-				text-decoration: none;
-				transition: color 0.3s ease;
-			}
-			a:hover {
-				color: #ff0000;
-			}
 			.container {
 				display: flex;
 				flex-direction: column;
