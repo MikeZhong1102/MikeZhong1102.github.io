@@ -240,6 +240,7 @@ function mousePressed() {
 
 function displayWinPopup() {
   noLoop();
+  bgm.stop();
   let scoreDiv = createDiv(`Your score: ${score}`);
   scoreDiv.position(width / 2 - 100, height / 2 - 50);
   scoreDiv.style('font-size', '20px');
