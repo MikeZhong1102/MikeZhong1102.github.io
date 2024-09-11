@@ -7,10 +7,12 @@ let font;
 let explosionSound;
 let playerSpeed = 5;
 let enemySpeed = 5;
+let enemyFreq = 0;
 let playerPos = {x: 0, y: 0};
 let supportLeftPos = {x: 0, y: 0};
 let supportRightPos = {x: 0, y: 0};
 let enemyPos = {x: 0, y: 0};
+let enemies = [];
 let bullets = [];
 let supportLeftBullets = [];
 let supportRightBullets = [];
@@ -129,29 +131,48 @@ function draw() {
       }
     }
 
-    enemyFlyFreq += deltaTime / 1000;
-    if (enemyFlyFreq > 0.02) {
-      enemyPos.y += enemySpeed;
-      enemyFlyFreq = 0;
+    
+
+    enemyFreq += deltaTime/1000;
+    if (enemyFreq > 2) {
+      let enemy = {x: map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2), y: -100};
+      enemies.push(enemy);
+      enemyFreq = 0;
     }
 
-    image(enemyImg, enemyPos.x - enemyImg.width / 2, enemyPos.y - enemyImg.height / 2);
+    for (let n = 0; n < enemies.length; n++) {
+      let enemy = enemies[n];
+      image(enemyImg, enemy.x - enemyImg.width / 2, enemy.y - enemyImg.height / 2);
+    }
+  
+      enemyFlyFreq += deltaTime / 1000;
+    if (enemyFlyFreq > 0.02) {
+      for (let n = 0; n < enemies.length; n++) {
+        let enemy = enemies[n];
+        enemy.y += enemySpeed;
+      }
+    }
+      
+    }
+    
 
-    if (enemyPos.y > height + enemyImg.height / 2) {
+   for (let j = 0; j < enemies.length; j++) {
+    let enemy = enemies[j];
+    if(enemy.y > height + enemyImg.height / 2) {
       displayWinPopup();
     }
 
     for (let n = 0; n < bullets.length; n++) {
       let bullet = bullets[n];
-      if (bullet.x - bulletImg.width / 2 < enemyPos.x + enemyImg.width / 2 &&
-        bullet.x + bulletImg.width / 2 > enemyPos.x - enemyImg.width / 2 &&
-        bullet.y + bulletImg.height / 2 > enemyPos.y - enemyImg.height / 2 &&
-        bullet.y - bulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
-        enemyPos.y = -enemyImg.height;
-        enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
+      if (bullet.x - bulletImg.width / 2 < enemy.x + enemyImg.width / 2 &&
+        bullet.x + bulletImg.width / 2 > enemy.x - enemyImg.width / 2 &&
+        bullet.y + bulletImg.height / 2 > enemy.y - enemyImg.height / 2 &&
+        bullet.y - bulletImg.height / 2 < enemy.y + enemyImg.height / 2) {
+        enemy.y = -enemyImg.height;
+        enemy.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
         explosionSound.play();
         score++;
-        if (enemySpeed < 20) {
+        if (enemySpeed < 10) {
           enemySpeed++;
         }
         if (timer > 300) {
@@ -165,15 +186,15 @@ function draw() {
 
     for (let n = 0; n < supportLeftBullets.length; n++) {
       let supportLeftBullet = supportLeftBullets[n];
-      if (supportLeftBullet.x - supportBulletImg.width / 2 < enemyPos.x + enemyImg.width / 2 &&
-        supportLeftBullet.x + supportBulletImg.width / 2 > enemyPos.x - enemyImg.width / 2 &&
-        supportLeftBullet.y + supportBulletImg.height / 2 > enemyPos.y - enemyImg.height / 2 &&
-        supportLeftBullet.y - supportBulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
-        enemyPos.y = -enemyImg.height;
-        enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
+      if (supportLeftBullet.x - supportBulletImg.width / 2 < enemy.x + enemyImg.width / 2 &&
+        supportLeftBullet.x + supportBulletImg.width / 2 > enemy.x - enemyImg.width / 2 &&
+        supportLeftBullet.y + supportBulletImg.height / 2 > enemy.y - enemyImg.height / 2 &&
+        supportLeftBullet.y - supportBulletImg.height / 2 < enemy.y + enemyImg.height / 2) {
+        enemy.y = -enemyImg.height;
+        enemy.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
         explosionSound.play();
         score++;
-        if (enemySpeed < 20) {
+        if (enemySpeed < 10) {
           enemySpeed++;
         }
         if (timer > 300) {
@@ -187,15 +208,15 @@ function draw() {
 
     for (let n = 0; n < supportRightBullets.length; n++) {
       let supportRightBullet = supportRightBullets[n];
-      if (supportRightBullet.x - supportBulletImg.width / 2 < enemyPos.x + enemyImg.width / 2 &&
-        supportRightBullet.x + supportBulletImg.width / 2 > enemyPos.x - enemyImg.width / 2 &&
-        supportRightBullet.y + supportBulletImg.height / 2 > enemyPos.y - enemyImg.height / 2 &&
-        supportRightBullet.y - supportBulletImg.height / 2 < enemyPos.y + enemyImg.height / 2) {
-        enemyPos.y = -enemyImg.height;
-        enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
+      if (supportRightBullet.x - supportBulletImg.width / 2 < enemy.x + enemyImg.width / 2 &&
+        supportRightBullet.x + supportBulletImg.width / 2 > enemy.x - enemyImg.width / 2 &&
+        supportRightBullet.y + supportBulletImg.height / 2 > enemy.y - enemyImg.height / 2 &&
+        supportRightBullet.y - supportBulletImg.height / 2 < enemy.y + enemyImg.height / 2) {
+        enemy.y = -enemyImg.height;
+        enemy.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
         explosionSound.play();
         score++;
-        if (enemySpeed < 20) {
+        if (enemySpeed < 10) {
           enemySpeed++;
         }
         if (timer > 300) {
@@ -218,6 +239,7 @@ function mousePressed() {
 }
 
 function displayWinPopup() {
+  noLoop();
   let scoreDiv = createDiv(`Your score: ${score}`);
   scoreDiv.position(width / 2 - 100, height / 2 - 50);
   scoreDiv.style('font-size', '20px');
@@ -225,22 +247,9 @@ function displayWinPopup() {
 
   playAgainButton = createButton('Play Again');
   playAgainButton.position(width / 2 - 40, height / 2 + 20);
-  playAgainButton.mousePressed(restartGame);
-  bgm.stop();
-  noLoop();
+  playAgainButton.mousePressed(reloadPage);
 }
 
-function restartGame() {
-  clear();
-  let elements = selectAll('div');
-  elements.forEach(e => e.remove());
-  playAgainButton.remove();
-  enemyPos.y = -enemyImg.height;
-  enemyPos.x = map(random(width), 0, width, playerImg.width / 2 - bulletImg.width / 2, width - playerImg.width / 2 + bulletImg.width / 2);
-  score = 0;
-  enemySpeed = 5;
-  timer = 1000;
-  supportTimer = 1000;
-  bgm.loop();
-  loop();
+function reloadPage() {
+  location.reload();
 }
