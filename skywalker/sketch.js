@@ -3,7 +3,6 @@ let showCover = true;
 let bgm;
 let bgImg = null;
 let score = 0;
-let font;
 let explosionSound;
 let playerSpeed = 5;
 let enemySpeed = 5;
@@ -39,7 +38,6 @@ function preload() {
   bulletImg = loadImage('bullet.png');
   playerImg = loadImage('player.png');
   enemyImg = loadImage('enemy.png');
-  font = loadFont('Australian Signature.otf');
   explosionSound = loadSound('explosion.wav');
   supportImg = loadImage('support.png');
   supportBulletImg = loadImage('supportBullet.png');
@@ -63,14 +61,12 @@ function draw() {
   } else {
     background('yellow');
     image(bgImg, 0, 0, width, height);
-
-    textFont(font);
     stroke('black');
     fill('white');
-    textSize(50);
-    text('score:', 40, 100);
     textSize(30);
-    text(score, 120, 100);
+    text('score:', 40, 100);
+    textSize(25);
+    text(score, 130, 100);
 
     image(playerImg, playerPos.x - playerImg.width / 2, playerPos.y - playerImg.height / 2);
     image(supportImg, supportLeftPos.x - supportImg.width / 2, supportLeftPos.y - supportImg.height / 2);
@@ -161,6 +157,13 @@ function draw() {
     if(enemy.y > height + enemyImg.height / 2) {
       displayWinPopup();
     }
+    if (playerPos.x - playerImg.width / 2 < enemy.x + enemyImg.width / 2 &&
+      playerPos.x + playerImg.width / 2 > enemy.x - enemyImg.width / 2 &&
+      playerPos.y + playerImg.height / 2 > enemy.y - enemyImg.height / 2 &&
+      playerPos.y - playerImg.height / 2 < enemy.y + enemyImg.height / 2) {
+      explosionSound.play();
+      displayWinPopup();
+    }
 
     for (let n = 0; n < bullets.length; n++) {
       let bullet = bullets[n];
@@ -244,7 +247,7 @@ function displayWinPopup() {
   let scoreDiv = createDiv(`Your score: ${score}`);
   scoreDiv.position(width / 2 - 100, height / 2 - 50);
   scoreDiv.style('font-size', '20px');
-  scoreDiv.style('color', 'red');
+  scoreDiv.style('color', 'white');
 
   playAgainButton = createButton('Play Again');
   playAgainButton.position(width / 2 - 40, height / 2 + 20);
