@@ -22,5 +22,5 @@ p {
         opacity: 0;
         animation: fadeIn 3s forwards;
 	font-family: 'Times New Roman', Times, serif;
-	color: white;
+	color: #fff;
 }
