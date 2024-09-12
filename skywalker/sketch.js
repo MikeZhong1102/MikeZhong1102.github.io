@@ -229,7 +229,7 @@ function draw() {
       }
     }
   }
-}
+
 
 function mousePressed() {
   showCover = false;
