@@ -1,5 +1,5 @@
 let coverImage;
-let showCover = true;
+let showCover = false;
 let bgm;
 let bgImg = null;
 let score = 0;
@@ -56,6 +56,10 @@ function setup() {
 }
 
 function draw() {
+  if (!isMusicPlaying) {
+    bgm.loop();
+    isMusicPlaying = true;
+  }
   if (showCover) {
     image(coverImage, 0, 0, width, height); 
   } else {
