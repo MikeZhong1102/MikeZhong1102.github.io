@@ -56,9 +56,7 @@ function setup() {
 }
 
 function draw() {
-  if (showCover) {
-    image(coverImage, 0, 0, width, height); 
-  } else {
+  
     background('yellow');
     image(bgImg, 0, 0, width, height);
     stroke('black');
